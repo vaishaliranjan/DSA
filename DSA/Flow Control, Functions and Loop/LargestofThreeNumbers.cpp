@@ -2,7 +2,7 @@
 #include <iostream>
 
 using namespace std;
-//first cup will be picked by me
+
 int main()
 {
     int a,b,c;
