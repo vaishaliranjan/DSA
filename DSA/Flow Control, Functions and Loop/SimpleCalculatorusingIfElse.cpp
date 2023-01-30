@@ -26,10 +26,14 @@ int main()
         cout<<"Multiplication: ";
         cout<<a*b;
     }
-    else
+    else if(op=='/')
     {
         cout<<"Division: ";
         cout<<a/b;
+    }
+    else
+    {
+        cout<<"Invalid Input";
     }
 
     return 0;
