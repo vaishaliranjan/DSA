@@ -13,16 +13,11 @@ bool isSorted(int arr[],int n)
 {
     for(int i=1; i<=n;i++)
        {
-           if(arr[i-1]<=arr[i])
+           if(arr[i]<arr[i-1])
            {
-               continue;
-           }
-           else
-           {
-               return 0;
-           }
+              return false;
        }
-       return 1;
+       return true;
 }
 int main()
 {
