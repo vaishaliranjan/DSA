@@ -1,34 +1,35 @@
-/******************************************************************************
-
-                              Online C++ Compiler.
-               Code, Compile, Run and Debug C++ program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
 
 #include <iostream>
-
 using namespace std;
-bool isSorted(int arr[],int n)
+bool isSorted(int arr[], int n)
 {
-    for(int i=1; i<=n;i++)
-       {
-           if(arr[i]<arr[i-1])
-           {
-              return false;
-       }
-       return true;
+    if(n==0 || n==1)
+    {
+        return true;
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]>arr[i+1])
+        {
+            return false;
+        }
+    }
+    return true;
 }
 int main()
 {
     int n;
+      cout<<"Enter n: ";
     cin>>n;
     int arr[n];
-    for(int i=0;i<n;i++)
+  
+    cout<<"Enter the array elements: ";
+    for(int i=0; i<n; i++)
     {
         cin>>arr[i];
     }
     cout<<isSorted(arr, n);
-
+    //int n=sizeof(arr[])/sizeof(arr[0]);
+    
     return 0;
 }
