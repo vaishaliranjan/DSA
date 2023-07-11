@@ -2,7 +2,7 @@ package Stack;
 
 import java.util.Stack;
 
-public class JVC {
+public class JCF {
     public static void main(String args[]){
         Stack<Integer> s=new Stack<>();
         s.push(1);
