@@ -71,6 +71,6 @@ public class LevelOrder {
         Node root = bt.binaryTree(nodes);
         System.out.println(root.data);
 
-        bt.levelOrder(root);
+        bt.levelOrder(root); 
     }
 }
