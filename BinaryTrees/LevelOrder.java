@@ -32,35 +32,53 @@ public class LevelOrder {
 
         }
 
-        public static void levelOrder(Node root) {
-            if (root == null) {
-                // System.out.print("-1 ");
+        public static void levelOrder(Node root, int k) {
+            if (root == null || k < 1) {
+                System.out.println("Invalid input: The tree is empty or k is not valid.");
                 return;
             }
+
             Queue<Node> q = new LinkedList<>();
             q.add(root);
             q.add(null);
+
+            int level = 1;
             while (!q.isEmpty()) {
                 Node curNode = q.remove();
+
+                // Handle null node, which indicates the end of a level
                 if (curNode == null) {
-                    System.out.println();
+                    level++;
+                    if (level == k) {
+                        // Print the elements at the kth level
+                        System.out.println();
+                        return;
+                    }
                     if (q.isEmpty()) {
                         break;
                     } else {
                         q.add(null);
-                    }
-                } else {
-                    System.out.print(curNode.data + " ");
-                    if (curNode.left != null) {
-                        q.add(curNode.left);
-                    }
-                    if (curNode.right != null) {
-                        q.add(curNode.right);
+                        continue;
                     }
                 }
 
+                // If we reach the desired level, print the element and return
+                if (level == k) {
+                    System.out.print(curNode.data + " ");
+                    return;
+                }
+
+                if (curNode.left != null) {
+                    q.add(curNode.left);
+                }
+                if (curNode.right != null) {
+                    q.add(curNode.right);
+                }
             }
 
+            // If the loop finishes without finding the desired level, it means
+            // the tree has fewer than k levels.
+            System.out.println("The tree has fewer than " + k + " levels.");
         }
     }
 
@@ -71,6 +89,6 @@ public class LevelOrder {
         Node root = bt.binaryTree(nodes);
         System.out.println(root.data);
 
-        bt.levelOrder(root); 
+        bt.levelOrder(root, 3);
     }
 }
